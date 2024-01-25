@@ -3,6 +3,7 @@ import 'package:example/examples/nested.dart';
 import 'package:flutter/material.dart';
 
 import 'examples/animated_header.dart';
+import 'examples/double_sliver_side_header.dart';
 import 'examples/grid.dart';
 import 'examples/list.dart';
 import 'examples/mix_slivers.dart';
@@ -77,6 +78,10 @@ class _Home extends StatelessWidget {
           _Item(
             text: 'Nested sticky headers',
             builder: (_) => const NestedExample(),
+          ),
+          _Item(
+            text: 'Double Sliver Center Side Header Example',
+            builder: (_) =>  DoubleSliverCenterSideHeaderExample(),
           ),
         ],
       ),
