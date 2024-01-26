@@ -274,17 +274,14 @@ class RenderSliverStickyHeader extends RenderSliver with RenderSliverHelpers {
 
       _isPinned = () {
         if (!sticky) return false;
-        if (_reverse)
-          return (constraints.remainingPaintExtent <
-              (constraints.viewportMainAxisExtent -
-                  ((child!.parentData as SliverPhysicalParentData?)
-                          ?.paintOffset
-                          .distance ??
-                      0)));
-        else
+        if (_reverse) {
+          return geometry!.paintExtent > 0 &&
+              constraints.remainingPaintExtent <= childScrollExtent;
+        } else {
           return ((constraints.scrollOffset + constraints.overlap) > 0.0 ||
               constraints.remainingPaintExtent ==
                   constraints.viewportMainAxisExtent);
+        }
       }();
 
       final double headerScrollRatio =
